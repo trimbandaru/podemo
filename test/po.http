@@ -1,0 +1,12 @@
+### Use with the VS Code "REST Client" extension while `cds watch` is running
+
+@server = http://localhost:4004
+
+### All POs with their items
+GET {{server}}/odata/v4/po/PurchaseOrders?$expand=items
+
+### Filter: only USD orders, newest first
+GET {{server}}/odata/v4/po/PurchaseOrders?$filter=currency eq 'USD'&$orderby=orderDate desc
+
+### Service metadata (what Fiori reads to build the UI)
+GET {{server}}/odata/v4/po/$metadata
